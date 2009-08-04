@@ -1,0 +1,5 @@
+eq_or_diff(
+   <CURSOR>,
+   {},
+   q{},
+);

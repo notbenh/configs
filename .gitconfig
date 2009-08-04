@@ -1,0 +1,32 @@
+[user]
+	name = ben hengst
+	email = notbenh@cpan.org
+[color]
+	ui = auto
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[pager]
+	status = true
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	staged = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	br = branch
+[format]
+	numbered = auto
+[core]
+	legacyheaders = false
+[repack]
+	usedeltabaseoffset = true
+[github]
+	user = notbenh
+	token = 84ab663acaea45f75a3bf190ed77d6a9
+[merge]
+	tool = meld
+[bash]
+   showDirtyState = true

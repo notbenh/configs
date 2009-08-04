@@ -1,0 +1,33 @@
+alias realias='chmod u+w ~/.aliases; $EDITOR ~/.aliases; source ~/.aliases; chmod -w ~/.aliases'
+alias goodmorning='svk sync --all && svk up ~/mirror/*'
+alias night="echo '=== JOBS ===' && jobs && echo && echo '=== SVK STATUS ===' && svk st . "
+
+alias f='find . -name '
+
+alias dl='ack -h "^(?:require|use)\s+(\w+(?:::\w+)*).*" --output=\$1 | sort -u | ack -v "(strict|warnings)"'
+
+alias msp='mysqladmin processlist | grep'
+alias msk='mysqladmin kill'
+
+alias BD='perl -MO=Deparse'
+alias p='perl -I /view/bin '
+
+#alias tim='timecard.pl'
+#alias t='time.pl'
+
+alias kexp='lynx http://www.kexp.org/playlist/popup_pl_content.asp'
+alias develonizer='ssh notbenh@develonizer.com'
+
+
+alias mkgit='make configure && ./configure --prefix=/usri/local && make all doc && sudo make install install-doc install-html '
+
+alias bb='perl ./Build.PL && b test'
+alias b='./Build'
+
+# ________________ OLD
+#alias nd='~/apps/ndoc -o HTML ~/doc -p ~/.naturaldocs -i '
+#alias dpd='diff -qyr ./dev/ ./production/ '
+#alias dpdg='diff -qyr ./dev/ ./production/ | grep '
+#alias cdpd='clear && dpd'
+#alias cdpdg='clear && dpdg'
+#alias pag='ps aux | grep '
