@@ -110,6 +110,10 @@ if [ -f ~/.aliases_hosts ]; then
    source ~/.aliases_hosts
 fi
 
+if [ -f ~/.aliases_local ]; then
+   source ~/.aliases_local
+fi
+
 export PERL5LIB=/view/bin:$PERL5LIB
 
 # git stuff
@@ -121,4 +125,7 @@ if [ -f ~/bin/git-completion.bash ]; then
 
 fi
 
+if [ -f ~/.bashrc_local ]; then
+   source ~/.bashrc_local
+fi
 
