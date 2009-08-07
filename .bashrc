@@ -99,37 +99,26 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 ### PERSONAL
-export PATH=.:$PATH:~/.cabal/bin/
-source /home/benh/.aliases
-source /home/benh/.aliases_hosts
+export PATH=.:$PATH:
+if [ -d ~/.cabal ]; then
+   export PATH=$PATH:~/.cabal/bin/
+fi
+
+source ~/.aliases
+
+if [ -f ~/.aliases_hosts ]; then
+   source ~/.aliases_hosts
+fi
 
 export PERL5LIB=/view/bin:$PERL5LIB
-function fenv () {
-
-    b="/home/benh/src/fbuild"
-    FBUILD_HOME="$b/src/tools/fbuild"; export FBUILD_HOME
-    if [ -f "$FBUILD_HOME/lib/build-common.sh" ]; then
-        . "$FBUILD_HOME/lib/build-common.sh"
-    else
-        echo "cannot find $FBUILD_HOME/lib/build-common.sh"
-        echo "is FBUILD_HOME defined correctly?"
-    fi
-
-}
 
 # git stuff
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SEPERATEOUTPUT=1
-source ~/bin/git-completion.sh
-export PS1='  \u\[\033[00;32m\]@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]$(__git_ps1 " (\[\033[01;34m\]%s\[\033[00m\]%s\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\])")\$ '
+if [ -f ~/bin/git-completion.bash ]; then
+   export GIT_PS1_SHOWDIRTYSTATE=1
+   export GIT_PS1_SEPERATEOUTPUT=1
+   source ~/bin/git-completion.bash
+   export PS1='  \u\[\033[00;32m\]@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]$(__git_ps1 " (\[\033[01;34m\]%s\[\033[00m\]%s\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\]\[\033[01;31m\]%s\[\033[00m\])")\$ '
 
-#export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(parse_git_branch)$ "
+fi
 
 
-
-#color-term
-#export COLOR_BASE=32768
-#alias colorterm='`printf "xterm -fn -artwiz-lime-*-*-*-*-*-*-*-*-*-*-*-* -rightbar -sb -bg rgb:%04x/%04x/%04x\n" $(($COLOR_BASE-$RANDOM)) $(($COLOR_BASE-$RANDOM)) $(($COLOR_BASE-$RANDOM)) `'
-
-#alias colorterm='`printf "xterm -bg rgb:%04x/%04x/%04x\n" $((($COLOR_BASE-$RANDOM)/2)) $((($COLOR_BASE-$RANDOM)/2)) $((($COLOR_BASE-$RANDOM)/2)) `'
-#alias colorterm='`printf "xterm -bg rgb:%04x/%04x/%04x\n" $((($COLOR_BASE-$RANDOM))) $((($COLOR_BASE-$RANDOM))) $((($COLOR_BASE-$RANDOM)/2)) `'
