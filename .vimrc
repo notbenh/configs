@@ -137,3 +137,6 @@ setlocal spell spelllang=en_us
 :set guioptions-=T 
 " always show the tab bar 
 :set showtabline=2
+
+" allow for there to be other .vimrc files 
+set exrc
