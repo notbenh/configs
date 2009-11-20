@@ -115,6 +115,7 @@ if [ -f ~/.aliases_local ]; then
 fi
 
 export PERL5LIB=/view/bin:$PERL5LIB
+export PERL5LIB=$PERL5LIB:/usr/local/lib/perl5/site_perl/5.10.0:/usr/local/lib/perl5/site_perl/5.10.0/i686-linux-ld
 
 # git stuff
 if [ -f ~/bin/git-completion.bash ]; then
