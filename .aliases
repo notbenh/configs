@@ -13,4 +13,7 @@ alias bb='perl ./Build.PL && b test'
 alias b='./Build'
 
 alias pd='perldoc'
+alias psg='ps -ef | grep'
+
+
 
