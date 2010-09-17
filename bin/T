@@ -1,0 +1,2 @@
+#!/bin/bash
+gnome-terminal --hide-menubar --tab-with-profile=$1
