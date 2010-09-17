@@ -8,7 +8,7 @@ own_window_transparent no
 own_window_colour #FF0000
 own_window_hints undecorated,above,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 410 12
+minimum_size 410 5
 maximum_width 410
 alignment top_right
 gap_x 0
@@ -30,4 +30,4 @@ cpu_avg_samples 2
 override_utf8_locale no
 
 TEXT
-$alignr ${color #ee9a00}${time %a %d %H:%M}$color ${texeci 60 /home/benh/bin/ttim 2> /dev/null | fold -w50} ${color #ee9a00}CPU$color:${cpugraph cpu1 10,24}${cpugraph cpu2 10,24} ${color #ee9a00}RAM$color:${memgraph 10,24} ${color #ee9a00}UP$color:${upspeedgraph eth0 10,24} ${color #ee9a00}DWN$color:${downspeedgraph eth0 10,24} 
+$alignr ${color #ee9a00}${time %a %d %H:%M}$color ${texeci 60 /home/benh/bin/ttim 2> /dev/null | fold -w50} ${color #ee9a00}CPU$color:${cpugraph cpu1 8,24}${cpugraph cpu2 8,24} ${color #ee9a00}RAM$color:${memgraph 8,24} ${color #ee9a00}UP$color:${upspeedgraph eth0 8,24} ${color #ee9a00}DWN$color:${downspeedgraph eth0 8,24} 
