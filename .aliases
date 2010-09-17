@@ -1,6 +1,4 @@
 alias realias='chmod u+w ~/.aliases; $EDITOR ~/.aliases; source ~/.aliases; chmod -w ~/.aliases'
-alias goodmorning='svk sync --all && svk up ~/mirror/*'
-alias night="echo '=== JOBS ===' && jobs && echo && echo '=== SVK STATUS ===' && svk st . "
 
 alias f='find . -name '
 
@@ -10,12 +8,12 @@ alias msp='mysqladmin processlist | grep'
 alias msk='mysqladmin kill'
 
 alias BD='perl -MO=Deparse'
-alias p='perl -I /view/bin '
-
-alias kexp='lynx http://www.kexp.org/playlist/popup_pl_content.asp'
-
-alias mkgit='make configure && ./configure --prefix=/usri/local && make all doc && sudo make install install-doc install-html '
 
 alias bb='perl ./Build.PL && b test'
 alias b='./Build'
+
+alias pd='perldoc'
+alias psg='ps -ef | grep'
+
+
 

@@ -137,3 +137,16 @@ setlocal spell spelllang=en_us
 :set guioptions-=T 
 " always show the tab bar 
 :set showtabline=2
+
+:set exrc
+:set nospell
+augroup type
+  autocmd BufNewFile,BufRead */t/*.pm source /home/benh/.vim/ftplugin/fennec.vim
+augroup END
+
+:map <F8> :w<cr>:call RunFennecLine()<cr>
+:map <F10> :w<cr>:! FENNEC_FILE='%' prove -v -I lib t/Fennec.t<cr>
+
+:imap <F8> <ESC>:w<cr>:call RunFennecLine()<cr>
+:imap <F10> <ESC>:w<cr>:! FENNEC_FILE='%' prove -v -I lib t/Fennec.t<cr>
+
