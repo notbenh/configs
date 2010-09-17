@@ -1,0 +1,85 @@
+-- Import statements
+import XMonad
+import qualified XMonad.StackSet as W
+import XMonad.Hooks.DynamicLog
+import System.IO
+import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.ManageDocks
+import XMonad.Util.Run
+import XMonad.Layout.SimpleFloat
+--import XMonad.Layout.NoBorders (noBorders)
+import XMonad.Layout.NoBorders 
+ 
+
+myTerminal = "gnome-terminal"
+myWorkspaces = ["1","2","3","4","5","6","7","8","9"]
+ 
+-- Define the workspace an application has to go to
+myManageHook = composeAll . concat $
+            [ -- The applications that go to web
+              [ className =? b --> doF (W.shift "5") | b <- myClassCommunicationShifts]
+              -- The applications that go to chat
+            , [ className =? c --> doF (W.shift "9") | c <- myClassMediaShifts]
+               -- The applications that float
+            , [ className =? i --> doFloat | i <- myClassFloats]
+            ]
+      where
+        myClassCommunicationShifts = ["pidgin", "Thunderbird"]
+        myClassMediaShifts         = ["songbird", "rhythmbox"]
+        myClassFloats              = ["Do"]
+ 
+-- Define default layouts used on most workspaces
+myLayouts = noBorders Full ||| Full
+{-
+myLayouts = noBorders tiled ||| Mirror tiled ||| simpleFloat ||| Full
+  where
+       -- default tiling algorithm partitions the screen into two panes
+          tiled   = Tall nmaster delta ratio
+ 
+       -- The default number of windows in the master pane
+          nmaster = 1
+ 
+       -- Default proportion of screen occupied by master pane
+          ratio   = 1/2
+ 
+       -- Percent of screen to increment by when resizing panes
+          delta   = 1/100
+-}
+
+-- borders
+borderWidth' :: Dimension
+borderWidth' = 0
+normalBorderColor', focusedBorderColor' :: String
+normalBorderColor'  = "#1C1C1C"
+focusedBorderColor' = "#C4C4C4"
+
+ 
+-- Status Bar:
+
+myStatusBar = "dzen2 -ta l -fn '-artwiz-lime-*-*-*-*-*-*-*-*-*-*-*-*' -tw 500"
+myLogHook :: Handle -> X ()
+myLogHook h = dynamicLogWithPP $ defaultPP
+    {
+        ppCurrent           =   dzenColor "#3EB5FF" "black" . pad
+      , ppVisible           =   dzenColor "white" "black" . pad
+      , ppHidden            =   dzenColor "white" "black" . pad
+      , ppHiddenNoWindows   =   dzenColor "#444444" "black" . pad
+      , ppUrgent            =   dzenColor "red" "black" . pad
+      , ppWsSep             =   " "
+      , ppSep               =   "  |  "
+      , ppTitle             =   (" " ++) . dzenColor "white" "black" . dzenEscape
+      , ppOutput            =   hPutStrLn h
+    }
+
+-- Run XMonad
+main = do
+   workspaceBar <- spawnPipe myStatusBar
+   xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig {
+   -- xmonad $ defaultConfig {
+        terminal    = myTerminal
+      , workspaces  = myWorkspaces
+      , manageHook  = manageDocks <+> myManageHook
+      , layoutHook  = myLayouts
+      , logHook     = myLogHook workspaceBar >> fadeInactiveLogHook 0xdddddddd
+   }
