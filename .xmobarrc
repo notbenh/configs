@@ -1,1 +1,18 @@
-/home/benh/Dropbox/config/.xmobarrc
+Config { font = "-artwiz-lime-*-*-*-*-*-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Static { xpos = 0 , ypos = 0, width = 1152, height = 16 }
+       , lowerOnStart = True
+       , commands = [ Run Date "<fc=#775555>%a %b %_d %Y</fc> <fc=#995555>%H:%M:%S</fc>" "theDate" 10
+                    , Run StdinReader
+                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ <fc=#555555>%cpu% | %memory% * %swap% | %eth0% %wlan0% %theDate% |</fc>"
+       }
+
