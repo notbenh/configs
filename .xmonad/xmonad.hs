@@ -6,7 +6,7 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
---import XMonad.Layout.Accordion
+import XMonad.Layout.Accordion
 import XMonad.Layout.Dishes
 import XMonad.Layout.Maximize
 import qualified XMonad.StackSet as W
@@ -15,20 +15,25 @@ import qualified Data.Map        as M
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
     , className =? "Vncviewer" --> doFloat
+    --, className =? "Skype"     --> doF(W.shift 5)
+    --, appName   =? "Skype"     --> doShift(5)
     ]
 
 myTerminal = "urxvt"
+-- myTerminal = "lxterminal"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
-    -- [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
-    [ ((modm,               xK_Return), spawn "urxvt")
+    [ ((modm,               xK_Return), spawn myTerminal)
+    --[ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
     --, ((modm,               xK_p     ), spawn "dmenu_run")
     --, ((modm .|. shiftMask, xK_p     ), spawn "dmenu_path_c > /tmp/dmenu_path_c.txt")
     --, ((modm,               xK_p     ), spawn "dmenu_path_c | dmenu")
     , ((modm,               xK_p     ), spawn "dmenu_path_c | dmenu_run")
+    --, ((modm,               xK_p     ), spawn "echo $PATH | sed 's!:! !g' | xargs lsx | /home/benh/.cabal/bin/yeganesh ")
+    , ((modm,               xK_o     ), spawn "ls -1 ~/.OST/reply_files | /home/benh/.cabal/bin/yeganesh -p OST -f -- -l 10 | perl -nle 'exec qq{xclip -i ~/.OST/reply_files/$_}' ")
     --, ((modm,               xK_p     ), spawn "dmenu_path | dmenu")
     , ((modm .|. shiftMask, xK_c     ), kill)                               -- close focused window
     , ((modm,               xK_space ), sendMessage NextLayout)             -- Rotate through the available layout algorithms
@@ -48,7 +53,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))      -- Deincrement the number of windows in the master area
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))          -- Quit xmonad
     --, ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart") 
+    , ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
     , ((modm              , xK_q     ),  restart "xmonad" True )            -- Restart xmonad
+    , ((modm .|. shiftMask, xK_q ), killAndExit) -- Quit xmonad
     ]
     ++
 

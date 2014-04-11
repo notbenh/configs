@@ -1,0 +1,49 @@
+set nocompatible                " Use Vim defaults instead of 100% vi compatibility
+set backspace=indent,eol,start  " more powerful backspacing
+set history=50                  " keep 50 lines of command line history
+set ruler                       " show the cursor position all the time
+
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+set ruler
+
+" sane colors please
+:hi Comment cterm=NONE ctermfg=grey "ctermbg=brown
+:hi Folded  ctermbg=NONE ctermfg=darkgrey
+
+" hilite the line with the cursor
+set cursorline
+hi CursorLine     term=underline 
+hi CursorColumn   term=reverse cterm=reverse
+colorscheme desert
+
+if has('gui_running')
+  " Make shift-insert work like in Xterm
+  map <S-Insert> <MiddleMouse>
+  map! <S-Insert> <MiddleMouse>
+endif
+
+" filetype plugin on
+filetype plugin indent on 
+syntax on
+ 
+call pathogen#infect() 
+nmap <F8> :TagbarToggle<CR>
+
+set backupdir=~/.backup,/tmp
+set directory=~/.backup,/tmp
+
+autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
+autocmd BufEnter *.pl set ai sw=2 ts=2 sta et fo=croq
+autocmd BufEnter *.pm set ai sw=2 ts=2 sta et fo=croq
+autocmd BufEnter *.t set ai sw=2 ts=2 sta et fo=croq
+autocmd BufEnter *.pod set ai sw=2 ts=2 sta et fo=croq
+autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croq
+
+autocmd BufEnter *.html set ai sw=2 ts=2 sta et fo=croq
+autocmd BufEnter *.css set ai sw=2 ts=2 sta et fo=croq
+autocmd BufEnter *.js set ai sw=2 ts=2 sta et fo=croq
+
+set paste

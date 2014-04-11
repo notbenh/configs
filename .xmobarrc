@@ -3,16 +3,44 @@ Config { font = "-artwiz-lime-*-*-*-*-*-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = Static { xpos = 0 , ypos = 0, width = 1152, height = 16 }
        , lowerOnStart = True
-       , commands = [ Run Date "<fc=#775555>%a %b %_d %Y</fc> <fc=#995555>%H:%M:%S</fc>" "theDate" 10
+       , commands = [ Run Date "<fc=#775555>%a %b %_d %Y</fc> <fc=#995555>%H:%M</fc>" "theDate" 100
                     , Run StdinReader
-                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
+                    , Run DynNetwork ["-m","4"
+                                     ,"-L","200"
+                                     ,"-H","1000"
+                                     ,"--normal","green"
+                                     ,"--high","red"
+                                     ,"-t","<rx>k <tx>k"
+                                     ] 50
+                    , Run MultiCpu ["-p","2"
+                                   ,"-L","40"
+                                   ,"--normal","yellow"
+                                   ,"-H","75"
+                                   ,"--high","red"
+                                   ,"-t","<autototal>"
+                                   ] 50
+                    , Run Memory ["-p","2"
+                                 ,"-L","40"
+                                 ,"--normal","yellow"
+                                 ,"-H","75"
+                                 ,"--high","red"
+                                 ,"-t", "<usedratio>"
+                                 ] 50
+                    , Run Battery ["-p","2"
+                                  ,"-L","20"
+                                  ,"--low", "red"
+                                  ,"--normal","yellow"
+                                  ,"-H","40"
+                                  ,"--template", "<acstatus> <left>%"
+                                  ,"--"
+                                  ,"-O","{<timeleft> <watts>}"
+                                  ,"-i","(<timeleft> <watts>)"
+                                  ,"-o","[<timeleft> <watts>]"
+                                  ] 150
+                    , Run Weather "KPDX" ["-t","[<skyCondition> <tempF>F]"] 100
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ <fc=#555555>%cpu% | %memory% * %swap% | %eth0% %wlan0% %theDate% |</fc>"
+       , template = "%StdinReader% }{ <fc=#555555>%multicpu% %memory% %battery%  %dynnetwork% %KPDX% %theDate% </fc>"
        }
 

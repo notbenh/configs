@@ -1,5 +1,6 @@
 [user]
 	name = ben hengst
+	user = notbenh
 	email = notbenh@cpan.org
 [color]
 	ui = auto
@@ -12,15 +13,22 @@
 [alias]
 	st = status
 	ci = commit
+	br = branch
 	co = checkout
 	staged = diff --cached
 	unstaged = diff
 	both = diff HEAD
-	br = branch
+	dc = svn dcommit
+   sup = svn rebase && git svn fetch --all
+   dup = svn dcommit && git svn rebase && git svn fetch --all 
+   duf = svn dcommit && git svn rebase && git svn fetch --all && fg
 [format]
 	numbered = auto
 [core]
 	legacyheaders = false
+  #editor = subl -n -w
+  editor = vim
+  pager = less -FRXSM
 [repack]
 	usedeltabaseoffset = true
 [github]
@@ -30,3 +38,5 @@
 	tool = meld
 [bash]
    showDirtyState = true
+[push]
+	default = matching

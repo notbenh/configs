@@ -1,0 +1,5 @@
+I set this all up according to : http://mirnazim.org/writings/vim-plugins-i-use/
+
+git submodule add git://github.com/vim-scripts/southernlights.git bundle/southernlights
+git submodule init && git submodule update
+git ci -m '...'

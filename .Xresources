@@ -1,0 +1,195 @@
+! Xft settings ---------------------------------------------------------------
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.autohint:   0
+Xft.lcdfilter:  lcddefault
+
+*font: xft:Liberation Mono:pixelsize=10:antialias=true:hinting=true
+
+!! drop in Solarized colorscheme for Xresources/Xdefaults
+
+!!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
+!!--------- ------- ---- -------  ----------- ---------- ----------- -----------
+!!base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
+!!base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
+!!base01    #586e75 10/7 brgreen  240 #585858 45 -07 -07  88 110 117 194  25  46
+!!base00    #657b83 11/7 bryellow 241 #626262 50 -07 -07 101 123 131 195  23  51
+!!base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
+!!base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
+!!base2     #eee8d5  7/7 white    254 #e4e4e4 92 -00  10 238 232 213  44  11  93
+!!base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99
+!!yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
+!!orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
+!!red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
+!!magenta   #d33682  5/5 magenta  125 #af005f 50  65 -05 211  54 130 331  74  83
+!!violet    #6c71c4 13/5 brmagenta 61 #5f5faf 50  15 -45 108 113 196 237  45  77
+!!blue      #268bd2  4/4 blue      33 #0087ff 55 -10 -45  38 139 210 205  82  82
+!!cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
+!!green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
+
+!! http://web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors/
+!Theme Two
+!*background: rgb:00/00/00
+!*foreground: rgb:7f/7f/7f
+!*color0:     rgb:00/00/00
+!*color1:     rgb:9e/18/28
+!*color2:     rgb:ae/ce/92
+!*color3:     rgb:96/8a/38
+!*color4:     rgb:41/41/71
+!*color5:     rgb:96/3c/59
+!*color6:     rgb:41/81/79
+!*color7:     rgb:be/be/be
+!*color8:     rgb:66/66/66
+!*color9:     rgb:cf/61/71
+!*color10:    rgb:c5/f7/79
+!*color11:    rgb:ff/f7/96
+!*color12:    rgb:41/86/be
+!*color13:    rgb:cf/9e/be
+!*color14:    rgb:71/be/be
+!*color15:    rgb:ff/ff/ff
+
+!Theme Thirteen
+!*background: rgb:00/00/00
+!*foreground: rgb:aa/aa/aa
+!*color0:     rgb:00/00/00
+!*color1:     rgb:9e/18/28
+!*color2:     rgb:ae/ce/92
+!*color3:     rgb:96/8a/38
+!*color4:     rgb:41/41/71
+!*color5:     rgb:96/3c/59
+!*color6:     rgb:7f/9f/7f
+!*color7:     rgb:be/be/be 
+!*color8:     rgb:66/66/66
+!*color9:     rgb:cf/61/71
+!*color10:    rgb:af/c5/af
+!*color11:    rgb:f0/df/af
+!*color12:    rgb:8e/9f/bc
+!*color13:    rgb:dc/a3/a3
+!*color14:    rgb:95/c1/c5
+!*color15:    rgb:ff/ff/ff
+
+!Theme Sixteen
+!*background: rgb:00/00/00
+!*foreground: rgb:be/be/be
+!*color0:     rgb:00/00/00
+!*color1:     rgb:9e/18/28
+!*color2:     rgb:ae/ce/92
+!*color3:     rgb:96/8a/38
+!*color4:     rgb:41/41/71
+!*color5:     rgb:96/3c/59
+!*color6:     rgb:41/81/79
+!*color7:     rgb:be/be/be
+!*color8:     rgb:66/66/66
+!*color9:     rgb:cf/61/71
+!*color10:    rgb:c5/f7/79
+!*color11:    rgb:ff/f7/96
+!*color12:    rgb:41/86/be
+!*color13:    rgb:cf/9e/be
+!*color14:    rgb:71/be/be
+!*color15:    rgb:ff/ff/ff
+
+!Theme Twenty-Two
+!*background: rgb:00/00/00
+!*foreground: rgb:be/be/be
+!*color0:     rgb:00/00/00
+!*color1:     rgb:d3/62/65
+!*color2:     rgb:ae/ce/91
+!*color3:     rgb:e7/e1/8c
+!*color4:     rgb:7a/7a/b0
+!*color5:     rgb:96/3c/59
+!*color6:     rgb:7f/9f/7f
+!*color7:     rgb:be/be/be
+!*color8:     rgb:66/66/66
+!*color9:     rgb:ef/81/71
+!*color10:    rgb:e5/f7/79
+!*color11:    rgb:f0/df/af
+!*color12:    rgb:8e/9f/bc
+!*color13:    rgb:ef/9e/be
+!*color14:    rgb:71/be/be
+!*color15:    rgb:ff/ff/ff
+
+!! from http://xcolors.net/
+
+!gjm scheme
+URxvt*cursorColor:   #cee318
+!URxvt*background:    #1C1C1C
+URxvt*background:    #000000
+URxvt*foreground:    #c5c5c5
+URxvt*color0:        #1C1C1C
+URxvt*color8:        #666666
+URxvt*color1:        #ff005b
+URxvt*color9:        #ff00a0
+URxvt*color2:        #cee318
+URxvt*color10:       #ccff00
+URxvt*color3:        #ffe755
+URxvt*color11:       #ff9f00
+URxvt*color4:        #048ac7
+URxvt*color12:       #48c6ff
+URxvt*color5:        #833c9f
+URxvt*color13:       #be67e1
+URxvt*color6:        #0ac1cd
+URxvt*color14:       #63e7f0
+URxvt*color7:        #e5e5e5
+URxvt*color15:       #f3f3f3
+
+!Gslob nature-suede
+!*background:       #170F0D
+!*foreground:       #746C48
+!*color0:           #392925
+!*color8:           #544B2E
+!*color1:           #98724C
+!*color9:           #AF652F
+!*color2:           #908F32
+!*color10:          #C3C13D
+!*color3:           #AA964C
+!*color11:          #C8B55B
+!*color4:           #7B854E
+!*color12:          #70A16C
+!*color5:           #6B5644
+!*color13:          #98724C
+!*color6:           #5C5142
+!*color14:          #778725
+!*color7:           #C8B55B
+!*color15:          #E4DC8C
+
+! Zenburn
+!*background:    #1C1C1C
+!*foreground:    #c5c5c5
+!*color0:  #1E2320
+!*color1:  #705050
+!*color2:  #60b48a
+!*color3:  #dfaf8f
+!*color4:  #506070
+!*color5:  #dc8cc3
+!*color6:  #8cd0d3
+!*color7:  #dcdccc
+!*color8:  #709080
+!*color9:  #dca3a3
+!*color10: #c3bf9f
+!*color11: #f0dfaf
+!*color12: #94bff3
+!*color13: #ec93d3
+!*color14: #93e0e3
+!*color15: #ffffff
+
+
+! [urxvt] ------------------------------------------------- 
+URxvt*borderLess:				false
+URxvt*depth:					32
+URxvt*scrollBar_right:				true
+!!!   !!URxvt*font:					xft:DejaVu Sans Mono-10
+!!!   !URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:Liberation Mono:pixelsize=10:antialias=true:hinting=true
+!!!   !!URxvt.font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+!!!   !!URxvt*font:					xft:Liberation Mono-10
+!!!   !!URxvt*font:					xft:Terminus-9
+!!!   !URxvt*font:					xft:Tamsyn-10
+!!!   !URxvt*font:					xft:ProFont-10
+!!!   
+URxvt*cursorBlink:				true
+URxvt*cursorUnderline:				true
+!!!   URxvt*scrollColor:				#111111
+URxvt*perl-ext-common:				default,clipboard

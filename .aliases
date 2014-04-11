@@ -1,19 +1,45 @@
-alias realias='chmod u+w ~/.aliases; $EDITOR ~/.aliases; source ~/.aliases; chmod -w ~/.aliases'
-
 alias f='find . -name '
-
-alias dl='ack -h "^(?:require|use)\s+(\w+(?:::\w+)*).*" --output=\$1 | sort -u | ack -v "(strict|warnings)"'
-
-alias msp='mysqladmin processlist | grep'
-alias msk='mysqladmin kill'
-
-alias BD='perl -MO=Deparse'
-
-alias bb='perl ./Build.PL && b test'
-alias b='./Build'
+alias ccd='clear && cd '
 
 alias pd='perldoc'
-alias psg='ps -ef | grep'
+#alias BD='perl -MO=Deparse,-si3'
+#alias bb='perl ./Build.PL && b installdeps && b test'
+#alias b='./Build'
+#alias bt='b test'
+
+alias :wqa='exit'
+#alias .c='dotcloud'
+#alias .h='heroku'
+#alias .m='meteor'
+
+alias did='tdone did '
+alias get='TDONE_FILE=~/.shopping tdone'
+alias got='get did'
+alias eat='TDONE_FILE=~/.eating tdone'
+alias ate='get did'
+alias bug='TDONE_FILE=./bugs tdone'
+alias tdont='TDONE_FILE=~/.dont_doit tdone'
+alias flow='TDONE_FILE=~/.ost_workflow tdone'
+alias tost='TDONE_FILE=~/.OST/todo tdone'
+
+alias mood='STAMPLOG_FILE=~/.mood stamplog'
+alias grat='STAMPLOG_FILE=~/.gratitude stamplog'
 
 
+#alias dance='./bin/app.pl'
 
+alias lsorhpans='sudo pacman -Qdt'
+alias rmorphans='sudo pacman -Rs $(pacman -Qtdq)'
+
+alias aurasync='sudo aura -Syu && sudo aura -Akyu'
+
+alias pip='python3 /usr/bin/pip'
+
+alias cal='cal -m'
+alias here='thin -p 8080 -A file start'
+alias pdf='apvlv'
+alias img='gliv'
+
+alias duu='du -ms * | sort -nr'
+alias dii='di -t'
+alias py='python3'

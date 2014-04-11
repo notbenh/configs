@@ -1,45 +1,12 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2002 Sep 19
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
-"vnoremap p "_dp
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -47,6 +14,34 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+
+
+if has("syntax")
+  syntax on
+endif
+
+if has("vms")
+  set nobackup " do not keep a backup file, use versions instead
+else
+  set backup   " keep a backup file
+endif
+
+set history=50 " keep 50 lines of command line history
+set ruler      " show the cursor position all the time
+set showcmd    " display incomplete commands
+set incsearch  " do incremental searching
+set showmatch  " Show matching brackets.
+set ignorecase " Do case insensitive matching
+set smartcase  " Do smart case matching
+set autowrite  " Automatically save before commands like :next and :make
+set hidden     " Hide buffers when they are abandoned
+"---set mouse=a    " Enable mouse usage (all modes)
+set paste      " set pase by default to allow for nice clean pasteing
+
+" cleaner backup/tmp file maanagement.... kinda
+set backupdir=~/.backup
+set directory=~/.backup
+
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -76,8 +71,8 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
-  "set smartindent		" always set smartindent on
+  "set autoindent   " always set autoindenting on
+  "set smartindent " always set smartindent on
 
 endif " has("autocmd")
 
@@ -86,31 +81,9 @@ set cursorline
 hi CursorLine     term=underline 
 hi CursorColumn   term=reverse cterm=reverse
 
-
-
-" better cleaner bindings for the code completeion:
-inoremap <silent><Esc>      <C-r>=pumvisible()?"\<lt>C-e>":"\<lt>Esc>"<CR>
-inoremap <silent><CR>       <C-r>=pumvisible()?"\<lt>C-y>":"\<lt>CR>"<CR>
-inoremap <silent><Down>     <C-r>=pumvisible()?"\<lt>C-n>":"\<lt>Down>"<CR>
-inoremap <silent><Up>       <C-r>=pumvisible()?"\<lt>C-p>":"\<lt>Up>"<CR>
-inoremap <silent><PageDown> <C-r>=pumvisible()?"\<lt>PageDown>\<lt>C-p>\<lt>C-n>":"\<lt>PageDown>"<CR>
-inoremap <silent><PageUp>   <C-r>=pumvisible()?"\<lt>PageUp>\<lt>C-p>\<lt>C-n>":"\<lt>PageUp>"<CR>
-
-set paste " set pase by default to allow for nice clean pasteing
-set ruler " enable the stuff at the bottom that always tells you where you are.
-
 " INCLUDE SOME COLOR FOR TT2 DOCS
 au BufNewFile,BufRead *.tt2      setf htmlcheetah
 au BufRead,BufNewFile *.t set filetype=perl | compiler perlprove
-
-" expand tabs to spaces
-set tabstop=3
-set shiftwidth=3
-set expandtab
-
-" cleaner backup/tmp file maanagement.... kinda
-set backupdir=~/.backup
-set directory=~/.backup
 
 " stuff for perl-support
 let g:Perl_AuthorName      = 'Ben Hengst'
@@ -122,31 +95,42 @@ let g:Perl_Company         = 'powells.com'
 set iskeyword+=:
 
 " sane colors please
-:hi Comment cterm=NONE ctermfg=grey "ctermbg=brown
-:hi Folded  ctermbg=NONE ctermfg=darkgrey
+hi Comment cterm=NONE ctermfg=grey "ctermbg=brown
+hi Folded  ctermbg=NONE ctermfg=darkgrey
+"colorscheme desertEx
 
 " on those rare instances where GVIM is better pick the same font
-set gfn=lime
+"set gfn=lime
+set guifont=Liberation\ Mono\ 9  
 
 " spellcheking
 setlocal spell spelllang=en_us
 
-:colorscheme desertEx
-
 " get rid of the toolbar in gVim
-:set guioptions-=T 
+set guioptions-=T 
 " always show the tab bar 
-:set showtabline=2
+set showtabline=2
 
-:set exrc
-:set nospell
-augroup type
-  autocmd BufNewFile,BufRead */t/*.pm source /home/benh/.vim/ftplugin/fennec.vim
-augroup END
+" force perl-supports snippits browser to use the inline browser
+:filetype plugin on
+let g:Perl_GuiSnippetBrowser = 'commandline'
+let g:Perl_GuiTemplateBrowser = 'commandline'
 
-:map <F8> :w<cr>:call RunFennecLine()<cr>
-:map <F10> :w<cr>:! FENNEC_FILE='%' prove -v -I lib t/Fennec.t<cr>
+" auto compile coffee script
+au BufWritePost *.coffee silent CoffeeMake! -bl | cwindow | redraw!
 
-:imap <F8> <ESC>:w<cr>:call RunFennecLine()<cr>
-:imap <F10> <ESC>:w<cr>:! FENNEC_FILE='%' prove -v -I lib t/Fennec.t<cr>
+set ruler
+" expand tabs to spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
+" vim latex
+filetype plugin indent on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+"set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+
+
+" scrolloff 
+set scrolloff=5

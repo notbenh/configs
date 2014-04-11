@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/benh/.vim/bundle/octopress'
+let g:netrw_dirhist_2='/home/benh/.ekg2'
+let g:netrw_dirhist_3='/home/benh/git/App-Rally-TSD'
+let g:netrw_dirhist_4='/home/benh/git/tool_bench/lib/Tool'
+let g:netrw_dirhist_5='/home/benh/git/tool_bench'
+let g:netrw_dirhist_6='/home/benh/git/tool_bench/lib'
+let g:netrw_dirhist_7='/home/benh/git/tool_bench/lib/Tool'
+let g:netrw_dirhist_8='/home/benh/.zsh'
+let g:netrw_dirhist_9='/home/benh'

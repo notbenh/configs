@@ -1,0 +1,11 @@
+insert_sudo     () { zle beginning-of-line; zle -U "sudo "         }
+insert_gem      () { zle beginning-of-line; zle -U "sudo gem "     }
+insert_install  () { zle -U "install "     }
+
+zle -N insert-sudo      insert_sudo
+zle -N insert-gem       insert_gem
+zle -N insert-install   insert_install
+
+bindkey "^B" insert-gem
+bindkey "^N" insert-install
+bindkey "^k" insert-sudo
