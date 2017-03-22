@@ -33,7 +33,6 @@
 	usedeltabaseoffset = true
 [github]
 	user = notbenh
-	token = 84ab663acaea45f75a3bf190ed77d6a9
 [merge]
 	tool = meld
 [bash]
